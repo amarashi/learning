@@ -1,0 +1,351 @@
+/* =========================================================================
+   Web-Dev Literacy — shared lesson stylesheet
+   One design system for every lesson. Tufte-inspired: quiet, readable, prints
+   well. FHA brand accents (Navy / Pink / Azure) tie it to Amir's real project.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+:root {
+  --navy:   #28235C;   /* FHA Navy Ink   */
+  --pink:   #E61C73;   /* FHA Berry Pink */
+  --azure:  #009CDE;   /* FHA Azure Blue */
+
+  --ink:    #2a2a33;
+  --muted:  #6b6b78;
+  --faint:  #9a9aa6;
+  --paper:  #fdfcf9;
+  --panel:  #ffffff;
+  --line:   #e4e1d8;
+  --rule:   #d8d4c8;
+
+  --serif:  Georgia, Cambria, "Times New Roman", serif;
+  --sans:   "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:   "SFMono-Regular", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+
+  --measure: 38rem;   /* readable line length */
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lesson {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* ---- Masthead -------------------------------------------------------- */
+.eyebrow {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin: 0 0 0.6rem;
+}
+.lesson > h1 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 2.3rem;
+  line-height: 1.1;
+  color: var(--navy);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+.sub {
+  font-style: italic;
+  color: var(--muted);
+  max-width: var(--measure);
+  margin: 0 0 2.2rem;
+}
+
+/* ---- Prose ----------------------------------------------------------- */
+.lesson p, .lesson li { max-width: var(--measure); }
+.lesson h2 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin: 2.8rem 0 0.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+.lesson h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--ink);
+  margin: 1.6rem 0 0.3rem;
+}
+.lede {
+  font-size: 1.15rem;
+  color: #3a3a45;
+}
+strong { color: var(--navy); }
+a { color: var(--azure); text-underline-offset: 2px; }
+a:hover { color: var(--pink); }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: #f3f0e8;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+  color: #4a4458;
+}
+
+/* ---- The map / layered diagram --------------------------------------- */
+.map { margin: 2rem 0; }
+
+.layer {
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 1.1rem 1.2rem 1.3rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.layer + .arrow { margin: 0.55rem 0; }
+.layer-label {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.85rem;
+}
+.layer.browser { border-color: var(--azure); }
+.layer.browser .layer-label { color: var(--azure); }
+.layer.author  { border-color: var(--pink); }
+.layer.author  .layer-label { color: var(--pink); }
+.layer.tooling { border-color: var(--navy); }
+.layer.tooling .layer-label { color: var(--navy); }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.box {
+  flex: 1 1 8rem;
+  min-width: 7.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+}
+.box b {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy);
+  display: block;
+}
+.box .what { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+.box .file {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--pink);
+  margin-top: 0.35rem;
+  display: block;
+}
+
+.arrow {
+  text-align: center;
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.arrow::before { content: "▼"; display:block; color: var(--faint); font-size: 1rem; line-height: 1; }
+
+/* ---- Callouts / asides ----------------------------------------------- */
+.callout {
+  border-left: 3px solid var(--azure);
+  background: #f4fafd;
+  padding: 0.9rem 1.1rem;
+  margin: 1.6rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+}
+.callout.analogy { border-left-color: var(--pink); background: #fdf3f8; }
+.callout .tag {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azure);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.callout.analogy .tag { color: var(--pink); }
+
+.win {
+  border: 1.5px solid var(--navy);
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  margin: 2.4rem 0 1rem;
+  background: #fbfaff;
+}
+.win .tag {
+  font-family: var(--sans); font-weight: 700; font-size: 0.7rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy);
+  display:block; margin-bottom: 0.4rem;
+}
+
+/* ---- Citations / source line ----------------------------------------- */
+.cite { font-size: 0.85rem; color: var(--muted); }
+.source {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  background: #f3f0e8;
+  border: 1px dashed var(--rule);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin: 2rem 0;
+}
+.source .tag {
+  font-weight: 700; font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--navy); display:block; margin-bottom: 0.3rem;
+}
+
+/* ---- Ask-your-teacher reminder --------------------------------------- */
+.ask {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+}
+.ask b { color: var(--pink); }
+
+/* ---- Footer nav ------------------------------------------------------ */
+.nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-family: var(--sans); font-size: 0.85rem;
+  margin-top: 1.2rem;
+}
+.nav a { text-decoration: none; }
+
+/* ---- Quiz widget (wired by assets/quiz.js) --------------------------- */
+.quiz {
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  margin: 1.8rem 0;
+  background: var(--panel);
+}
+.quiz .q {
+  font-family: var(--sans); font-weight: 600; color: var(--navy);
+  margin: 0 0 0.8rem; max-width: none;
+}
+.quiz .opt {
+  display: block; width: 100%; text-align: left;
+  font: inherit; font-size: 0.95rem;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 8px;
+  padding: 0.6rem 0.85rem; margin: 0.4rem 0; cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.quiz .opt:hover { border-color: var(--azure); }
+.quiz .opt.correct   { border-color: #2e7d4f; background: #eef7f0; }
+.quiz .opt.wrong     { border-color: var(--pink); background: #fdf0f5; }
+.quiz .opt:disabled  { cursor: default; }
+.quiz .fb {
+  font-family: var(--sans); font-size: 0.88rem; margin-top: 0.6rem;
+  min-height: 1.2em; color: var(--muted);
+}
+.quiz .fb.ok  { color: #2e7d4f; }
+.quiz .fb.no  { color: var(--pink); }
+
+/* ---- Glossary (reference docs) --------------------------------------- */
+.legend {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin: 0 0 1.8rem;
+}
+.pill {
+  font-family: var(--sans); font-weight: 700; font-size: 0.62rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.12em 0.5em; border-radius: 999px; color: #fff; white-space: nowrap;
+}
+.pill.b1 { background: var(--pink); }   /* author     */
+.pill.b2 { background: var(--navy); }   /* toolchain  */
+.pill.b3 { background: var(--azure); }  /* browser    */
+.pill.bc { background: var(--faint); }  /* concept    */
+
+.term {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0 0.4rem;
+  break-inside: avoid;
+}
+.term:first-of-type { border-top: none; }
+.term h3 {
+  margin: 0 0 0.15rem; display: flex; align-items: baseline;
+  gap: 0.6rem; flex-wrap: wrap;
+}
+.term .def { margin: 0.2rem 0; }
+.term .fha {
+  font-size: 0.85rem; color: var(--muted); margin: 0.25rem 0 0; max-width: none;
+}
+.term .fha b { color: var(--pink); font-family: var(--sans); font-size: 0.78rem;
+  letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ---- Field guide (decoded list) -------------------------------------- */
+.pill.use { background: #2e7d4f; }   /* you already use this */
+
+.area-note {
+  font-family: var(--sans); font-size: 0.86rem; color: var(--muted);
+  background: #f3f0e8; border-left: 3px solid var(--rule);
+  border-radius: 0 8px 8px 0; padding: 0.6rem 0.95rem; margin: 0.3rem 0 1.1rem;
+  max-width: none;
+}
+.area-note.scope { border-left-color: var(--pink); background: #fdf3f8; color: #7a5566; }
+
+.entry {
+  padding: 0.55rem 0; border-top: 1px solid var(--line);
+  break-inside: avoid; max-width: none;
+}
+.entry:first-of-type { border-top: none; }
+.entry .name {
+  font-family: var(--sans); font-weight: 600; color: var(--navy);
+  font-size: 0.98rem; margin-right: 0.5rem;
+}
+.entry .check {
+  font-family: var(--sans); font-weight: 700; font-size: 0.6rem;
+  letter-spacing: 0.06em; color: #fff; background: #2e7d4f;
+  padding: 0.12em 0.5em; border-radius: 999px; vertical-align: 0.08em;
+  text-transform: uppercase; margin-right: 0.4rem;
+}
+.entry .desc { color: var(--ink); }
+.entry .alt { color: var(--muted); font-style: italic; font-size: 0.92rem; }
+
+/* ---- Print ----------------------------------------------------------- */
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .lesson { max-width: none; padding: 0; }
+  .quiz, .ask, .nav { display: none; }
+  .layer, .box, .win, .callout, .source { break-inside: avoid; }
+  a { color: var(--ink); text-decoration: none; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .lesson { padding: 2.5rem 1.1rem 4rem; }
+  .lesson > h1 { font-size: 1.8rem; }
+}

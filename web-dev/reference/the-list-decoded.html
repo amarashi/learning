@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The List, Decoded · Web-Dev Literacy</title>
+  <link rel="stylesheet" href="../assets/lesson.css" />
+</head>
+<body>
+<article class="lesson">
+
+  <p class="eyebrow">Reference · Your list, placed on the map</p>
+  <h1>The List, Decoded</h1>
+  <p class="sub">The ~60 names you found, dropped onto
+  <a href="../lessons/0001-the-map-of-web-development.html">Lesson 01's map</a>.
+  The point isn't to learn them all — it's to see the <em>shape</em>.</p>
+
+  <p class="lede">Three things make this list stop being scary:
+  <strong>(1)</strong> it's only ~6 categories; <strong>(2)</strong> inside most
+  categories the items are <em>interchangeable alternatives</em> — you pick one;
+  <strong>(3)</strong> over half is <em>back end</em>, which your goal (read &amp; tweak
+  the front end) doesn't require — and you already know its friendliest language,
+  Python.</p>
+
+  <div class="legend">
+    <span><span class="pill use">✓ Use</span> already in your FHA project</span>
+    <span><span class="pill b3">Browser ③</span></span>
+    <span><span class="pill b1">Author ①</span></span>
+    <span><span class="pill b2">Toolchain ②</span></span>
+    <span><span class="pill bc">Back end / infra</span></span>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>FRONT END — runs in the browser <span class="pill b1">your zone</span></h2>
+  <p class="area-note">This whole half is your mission. You already run the modern
+  default stack here: <strong>React + TypeScript + Vite + npm</strong>.</p>
+
+  <h3>③ The three browser languages</h3>
+  <div class="entry"><span class="name">HTML</span><span class="check">✓ Use</span><span class="desc">Page structure. The bedrock — non-negotiable.</span></div>
+  <div class="entry"><span class="name">CSS</span><span class="check">✓ Use</span><span class="desc">Styling. The bedrock.</span></div>
+  <div class="entry"><span class="name">JavaScript</span><span class="check">✓ Use</span><span class="desc">The only language the browser runs. Everything compiles down to this.</span></div>
+
+  <h3>① UI frameworks — <em>pick one</em> (they all do the same job)</h3>
+  <div class="entry"><span class="name">React</span><span class="check">✓ Use</span><span class="desc">Build UI from reusable components. The market leader.</span></div>
+  <div class="entry"><span class="name">Next.js</span><span class="desc">A <em>framework built on React</em> — adds routing, server-rendering, etc. <span class="alt">Reach for it when a React site needs pages, SEO, or a bit of backend.</span></span></div>
+  <div class="entry"><span class="name">Vue.js</span> · <span class="name">Angular</span> · <span class="name">Svelte</span><span class="desc"><span class="alt">Direct alternatives to React. Different syntax, same purpose. You don't need them if you're on React.</span></span></div>
+
+  <h3>① Styling helpers — <em>pick one (optional)</em></h3>
+  <div class="entry"><span class="name">Tailwind CSS</span><span class="desc">Write styling as tiny utility classes instead of separate CSS files. Very popular now. <span class="alt">(Your FHA site uses plain CSS + design tokens instead.)</span></span></div>
+  <div class="entry"><span class="name">Sass</span><span class="desc">CSS with extras (variables, nesting); compiles to plain CSS. <span class="alt">Older convenience layer.</span></span></div>
+  <div class="entry"><span class="name">Bootstrap</span><span class="desc">Ready-made styled components (buttons, grids). <span class="alt">Older; fast but generic-looking.</span></span></div>
+
+  <h3>① Helper libraries</h3>
+  <div class="entry"><span class="name">TypeScript</span><span class="check">✓ Use</span><span class="desc">JavaScript + type-checking. Spans front end <em>and</em> back end.</span></div>
+  <div class="entry"><span class="name">Axios</span><span class="desc">A small library to fetch data from a server. <span class="alt">(The browser's built-in <code>fetch</code> now does most of this.)</span></span></div>
+
+  <h3>② Build &amp; quality toolchain</h3>
+  <div class="entry"><span class="name">npm</span><span class="check">✓ Use</span><span class="desc">Installs &amp; tracks libraries. Your <code>pip</code>.</span></div>
+  <div class="entry"><span class="name">Vite</span><span class="check">✓ Use</span><span class="desc">The build tool / dev server. The modern default.</span></div>
+  <div class="entry"><span class="name">Webpack</span> · <span class="name">Esbuild</span> · <span class="name">Turbopack</span><span class="desc"><span class="alt">Other bundlers. Webpack = the old standard; esbuild = the fast engine Vite uses inside; Turbopack = Vercel's newer one. You're on Vite — just recognize the others.</span></span></div>
+  <div class="entry"><span class="name">ESLint</span><span class="desc">Linter — flags likely bugs &amp; bad patterns as you type.</span></div>
+  <div class="entry"><span class="name">Prettier</span><span class="desc">Auto-formatter — reformats code consistently on save. <span class="alt">Cosmetic, not logic.</span></span></div>
+
+  <!-- ============================================================ -->
+  <h2>CROSS-CUTTING — both halves use these <span class="pill bc">recognize</span></h2>
+
+  <h3>② Version control &amp; code hosting</h3>
+  <div class="entry"><span class="name">Git</span><span class="check">✓ Use</span><span class="desc">Tracks every change to your code (undo, history, branches). Universal.</span></div>
+  <div class="entry"><span class="name">GitHub</span> · <span class="name">GitLab</span><span class="desc">Websites that <em>host</em> Git repos + collaboration. <span class="alt">GitHub is the default; GitLab is the main alternative.</span></span></div>
+
+  <h3>Hosting / cloud / infrastructure — <em>where the site lives online</em></h3>
+  <div class="entry"><span class="name">Vercel</span> · <span class="name">Netlify</span><span class="desc">Simple hosts that deploy a front-end site straight from GitHub. <span class="alt">Easiest path to "live on the internet."</span></span></div>
+  <div class="entry"><span class="name">AWS</span> · <span class="name">GCP</span> · <span class="name">Azure</span><span class="desc">The big cloud providers (Amazon / Google / Microsoft). Rent servers, databases, storage. <span class="alt">Powerful, complex, enterprise.</span></span></div>
+  <div class="entry"><span class="name">Docker</span><span class="desc">Packages an app + its environment into a portable "container" that runs identically anywhere. <span class="alt">Like a reproducible env for a whole app.</span></span></div>
+  <div class="entry"><span class="name">Kubernetes</span><span class="desc">Runs &amp; scales <em>many</em> Docker containers across many machines. <span class="alt">Heavy infrastructure — far from your goal.</span></span></div>
+
+  <h3>Testing — <em>code that checks your code</em></h3>
+  <div class="entry"><span class="name">Jest</span> · <span class="name">Vitest</span><span class="desc">Run small "unit" tests on functions. <span class="alt">Vitest is the Vite-native one.</span></span></div>
+  <div class="entry"><span class="name">Playwright</span> · <span class="name">Cypress</span><span class="desc">Drive a real browser to test whole user flows ("click login, expect dashboard"). <span class="alt">End-to-end testing.</span></span></div>
+
+  <!-- ============================================================ -->
+  <h2>BACK END — runs on a server <span class="pill bc">just recognize</span></h2>
+  <p class="area-note scope"><strong>Out of scope for your goal.</strong> Your FHA site
+  has no back end. You only need to recognize these as "the server/database half."
+  Bonus: you already know <strong>Python</strong> — the gentlest entry here — so if a
+  project ever needs a back end, you're closer than you think.</p>
+
+  <h3>Server frameworks — <em>build the API/server</em></h3>
+  <div class="entry"><span class="name">Node.js</span><span class="desc">Runs JavaScript <em>outside</em> the browser — it's what powers npm &amp; Vite on your machine, and most JS back ends.</span></div>
+  <div class="entry"><span class="name">Express</span> · <span class="name">NestJS</span><span class="desc">Back-end frameworks for Node (JS/TS). <span class="alt">Express = minimal; Nest = structured.</span></span></div>
+  <div class="entry"><span class="name">Django</span> · <span class="name">FastAPI</span><span class="desc"><strong>Python</strong> back-end frameworks. <span class="alt">You'd be at home here — FastAPI is the modern choice for serving APIs (incl. ML models).</span></span></div>
+  <div class="entry"><span class="name">Spring Boot</span> · <span class="name">.NET</span> · <span class="name">Ruby on Rails</span> · <span class="name">Laravel</span><span class="desc"><span class="alt">Back-end frameworks for Java / C# / Ruby / PHP. Enterprise &amp; legacy worlds. Name-only.</span></span></div>
+
+  <h3>General-purpose languages (mostly back-end here)</h3>
+  <div class="entry"><span class="name">Python</span><span class="check">✓ Know</span><span class="desc">You already speak this. Common back end + the language of your ML day job.</span></div>
+  <div class="entry"><span class="name">Java</span> · <span class="name">C#</span> · <span class="name">Go</span> · <span class="name">Rust</span> · <span class="name">PHP</span><span class="desc"><span class="alt">Other back-end languages. Go &amp; Rust = modern/fast; Java &amp; C# = enterprise; PHP = legacy web. Recognize, don't study.</span></span></div>
+
+  <h3>Databases — <em>where data is stored</em></h3>
+  <div class="entry"><span class="name">PostgreSQL</span> · <span class="name">MySQL</span> · <span class="name">SQLite</span><span class="desc">Relational (table-based, SQL). <span class="alt">Postgres = modern default; SQLite = a single file, zero setup.</span></span></div>
+  <div class="entry"><span class="name">MongoDB</span><span class="desc">Document database (flexible, JSON-like). <span class="alt">"NoSQL" — no fixed table schema.</span></span></div>
+  <div class="entry"><span class="name">Redis</span><span class="desc">In-memory store — blazing fast, used for caching &amp; queues.</span></div>
+
+  <h3>APIs — <em>how front talks to back</em></h3>
+  <div class="entry"><span class="name">REST API</span><span class="desc">The standard convention for a front end to request data over HTTP. <span class="alt">A pattern, not a tool.</span></span></div>
+  <div class="entry"><span class="name">GraphQL</span><span class="desc">An alternative to REST — the front end asks for exactly the fields it wants.</span></div>
+  <div class="entry"><span class="name">Postman</span><span class="desc">A desktop tool to poke at an API by hand while developing. <span class="alt">Not part of the app.</span></span></div>
+
+  <h3>Backend-as-a-service — <em>skip writing a back end</em></h3>
+  <div class="entry"><span class="name">Firebase</span> · <span class="name">Supabase</span><span class="desc">Ready-made back ends: database + login + hosting in one. <span class="alt">Great when a front-end dev needs data/auth without building a server. Supabase = open-source, Postgres-based.</span></span></div>
+
+  <!-- ============================================================ -->
+  <h2>So what should <em>you</em> actually touch?</h2>
+  <p>Mapped against your goal — read &amp; tweak the front end:</p>
+  <ul>
+    <li><strong>Already yours (the core):</strong> HTML, CSS, JS, React, TypeScript, npm, Vite, Git. We deepen these.</li>
+    <li><strong>Worth a glance soon:</strong> Tailwind (you'll see it everywhere), GitHub, Vercel/Netlify (how a site goes live), ESLint/Prettier.</li>
+    <li><strong>Recognize the category, ignore the rest:</strong> all back end, all databases, AWS/Docker/Kubernetes, the testing tools. They'll still make sense — because you know which <em>bucket</em> they're in.</li>
+  </ul>
+
+  <p class="ask">Want any single item promoted into a full lesson — say, "what's
+  Tailwind and should my project use it?" or "show me how a front end talks to a back
+  end"? <b>Just ask.</b></p>
+
+  <div class="nav">
+    <a href="../lessons/0001-the-map-of-web-development.html">← Lesson 01 · The Map</a>
+    <a href="glossary.html">Glossary →</a>
+  </div>
+
+</article>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 01 · The Map of Web Development</title>
+  <link rel="stylesheet" href="../assets/lesson.css" />
+</head>
+<body>
+<article class="lesson">
+
+  <p class="eyebrow">Lesson 01 · The Big Picture</p>
+  <h1>The Map of Web Development</h1>
+  <p class="sub">Before any tool makes sense, you need the territory. This is the one
+  map the whole roadmap hangs off — and every box on it is already sitting in your
+  FHA project.</p>
+
+  <p class="lede">Here is the single idea that demystifies almost everything:
+  <strong>a web browser only speaks three languages.</strong> Everything else in
+  web development exists either to make those three nicer to write, or to translate
+  your nicer code back down into them.</p>
+
+  <!-- ================= THE MAP ================= -->
+  <div class="map">
+
+    <div class="layer author">
+      <p class="layer-label">① What you (and the AI) actually write</p>
+      <div class="row">
+        <div class="box">
+          <b>React</b>
+          <span class="what">build the UI from reusable pieces</span>
+          <span class="file">LandingPage.tsx · Button.tsx</span>
+        </div>
+        <div class="box">
+          <b>TypeScript</b>
+          <span class="what">JavaScript + safety checks</span>
+          <span class="file">.ts / .tsx · tsconfig.json</span>
+        </div>
+        <div class="box">
+          <b>Libraries</b>
+          <span class="what">someone else's code you borrow</span>
+          <span class="file">three.js · lenis</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="arrow">a <strong>build step</strong> translates &amp; bundles it</p>
+
+    <div class="layer tooling">
+      <p class="layer-label">② The toolchain (translator + librarian)</p>
+      <div class="row">
+        <div class="box">
+          <b>npm</b>
+          <span class="what">downloads &amp; tracks libraries</span>
+          <span class="file">package.json · node_modules/</span>
+        </div>
+        <div class="box">
+          <b>Vite</b>
+          <span class="what">build tool + live dev server</span>
+          <span class="file">vite.config.ts · npm run dev</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="arrow">produces plain files the browser can read</p>
+
+    <div class="layer browser">
+      <p class="layer-label">③ What the browser actually runs — the only 3 languages</p>
+      <div class="row">
+        <div class="box">
+          <b>HTML</b>
+          <span class="what">structure — the nouns on the page</span>
+          <span class="file">index.html</span>
+        </div>
+        <div class="box">
+          <b>CSS</b>
+          <span class="what">style — colour, layout, type</span>
+          <span class="file">global.css · Button.css</span>
+        </div>
+        <div class="box">
+          <b>JavaScript</b>
+          <span class="what">behaviour — what happens when you click</span>
+          <span class="file">(compiled from your .tsx)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p>Read it bottom-up and it tells the true story of the web. Read it top-down and
+  it tells the story of <em>your workflow</em>: you write in layer ①, a tool in
+  layer ② translates it, and the browser runs the result in layer ③.</p>
+
+  <!-- ================= THE THREE BROWSER LANGUAGES ================= -->
+  <h2>Layer ③ — the bedrock: HTML, CSS, JavaScript</h2>
+  <p>This is the floor everything stands on. A browser knows these three and
+  <em>nothing</em> else. The classic way to remember the split:</p>
+  <ul>
+    <li><strong>HTML</strong> is the <em>structure</em> — headings, paragraphs, buttons,
+    images. The nouns. Your <span class="file">index.html</span> is the page's skeleton.</li>
+    <li><strong>CSS</strong> is the <em>style</em> — what those nouns look like. Your
+    Navy/Pink/Azure colours and the Montserrat font live in
+    <span class="file">styles/global.css</span>.</li>
+    <li><strong>JavaScript</strong> is the <em>behaviour</em> — what happens over time and
+    on interaction (open a menu, play the hero video, smooth-scroll).</li>
+  </ul>
+  <p class="cite">Reference: MDN's three intro modules —
+  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics">CSS</a>,
+  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting">JavaScript</a>.</p>
+
+  <!-- ================= AUTHOR LAYER ================= -->
+  <h2>Layer ① — why we don't write the bedrock directly</h2>
+  <p>You <em>could</em> hand-write thousands of lines of raw HTML/CSS/JS. Nobody does, for
+  the same reason you don't write assembly to run a regression. We write in something
+  more expressive and let a tool compile it down.</p>
+  <ul>
+    <li><strong>React</strong> is a <em>library</em> for building a UI out of reusable
+    <em>components</em> — little functions that return a chunk of page. Your
+    <span class="file">Button.tsx</span> is defined once and reused everywhere. The
+    HTML-looking syntax inside those files is <strong>JSX</strong>; the build step turns it
+    into plain JavaScript.
+    <span class="cite">(<a href="https://react.dev/learn">react.dev/learn</a>)</span></li>
+    <li><strong>TypeScript</strong> is JavaScript plus a <em>type checker</em> — it catches
+    "you passed a string where a number goes" before the code ever runs. That's the
+    <code>.ts</code>/<code>.tsx</code> and <span class="file">tsconfig.json</span> in your repo.</li>
+    <li><strong>Libraries</strong> are pre-built code you borrow instead of writing.
+    <code>three</code> draws the 3-D hero; <code>lenis</code> does the buttery scroll. You
+    didn't build those — you installed them.</li>
+  </ul>
+
+  <div class="callout analogy">
+    <span class="tag">Maps to what you already know</span>
+    You never write machine code — you write Python or R, and an interpreter runs it.
+    The web is the same shape: <strong>HTML/CSS/JS is the machine layer</strong>;
+    <strong>React/TypeScript is your high-level language</strong>; and the build tool is
+    the compiler in between. Knowing this, most of the roadmap stops being a pile of
+    unrelated words and becomes "another option inside one of these three boxes."
+  </div>
+
+  <!-- ================= TOOLING ================= -->
+  <h2>Layer ② — the toolchain: <code>npm</code> and Vite</h2>
+  <p>Two jobs sit between what you write and what ships:</p>
+  <ul>
+    <li><strong>npm</strong> = the package manager. <span class="file">package.json</span>
+    is your project's recipe (which libraries, which versions);
+    <span class="file">node_modules/</span> is where the downloaded library code lands.</li>
+    <li><strong>Vite</strong> = the build tool. In development, <code>npm run dev</code>
+    starts a live server that recompiles the instant you save. For release,
+    <code>npm run build</code> bundles everything into plain optimised files in
+    <span class="file">dist/</span>.
+    <span class="cite">(<a href="https://vite.dev/guide/why.html">Why Vite</a>)</span></li>
+  </ul>
+
+  <div class="callout analogy">
+    <span class="tag">Maps to what you already know</span>
+    <code>npm install</code> is <code>pip install</code> / <code>install.packages()</code>,
+    and <span class="file">node_modules/</span> is your virtual-env / library folder.
+    <code>npm run dev</code> is a live notebook that re-runs on save — same loop as
+    re-running a cell when the plot looks wrong.
+  </div>
+
+  <!-- ================= WHAT'S NOT HERE ================= -->
+  <h2>One honest gap: the "back end"</h2>
+  <p>This whole map is the <strong>front end</strong> — everything that runs in the
+  visitor's browser. Many apps also have a <strong>back end</strong>: a server + database
+  that store and serve data. Your FHA site is a <em>marketing</em> site, so it's
+  front-end only — there's no back end to find in the repo. We'll name that part of the
+  map later, when a project actually needs it.</p>
+
+  <!-- ================= THE WIN ================= -->
+  <div class="win">
+    <span class="tag">Your win this lesson</span>
+    You can now take <em>any</em> file or buzzword in a web project and drop it into one
+    of three buckets — <strong>browser language</strong>, <strong>author convenience</strong>,
+    or <strong>toolchain</strong> — and say why. That's the skeleton every future lesson
+    hangs on.
+  </div>
+
+  <!-- ================= QUIZ ================= -->
+  <p>Quick check — no clues in the wording, just recall:</p>
+
+  <div class="quiz">
+    <p class="q">1. A teammate says the site uses <code>react-router</code> for navigation.
+    Which bucket is that?</p>
+    <button class="opt" data-correct data-why="Right — it's a library (someone else's code you install via npm), so it lives in the author layer.">An author-layer library you install</button>
+    <button class="opt" data-why="No — the browser only natively runs HTML, CSS, JavaScript. A named package isn't one of those.">A fourth language the browser runs</button>
+    <button class="opt" data-why="No — Vite/npm are the toolchain itself; a routing package is something they install, not the tool.">Part of the build toolchain</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">2. The <span class="file">dist/</span> folder appears after
+    <code>npm run build</code>. What's in it?</p>
+    <button class="opt" data-correct data-why="Exactly — build output: the plain HTML/CSS/JS the browser actually runs, translated from your .tsx.">Plain HTML/CSS/JS, ready for the browser</button>
+    <button class="opt" data-why="No — that's node_modules/. dist/ is the compiled output you ship, not the libraries you pulled in.">The libraries npm downloaded</button>
+    <button class="opt" data-why="No — your TypeScript source stays in src/. dist/ holds the compiled result, not the source.">Your original TypeScript source</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">3. Which statement is true about the browser?</p>
+    <button class="opt" data-correct data-why="Yes — that's the whole key. React/TS get compiled down to these three before the browser ever sees them.">It runs only HTML, CSS and JavaScript</button>
+    <button class="opt" data-why="No — the browser can't run React or TypeScript directly; the build step translates them into JavaScript first.">It runs React and TypeScript directly</button>
+    <button class="opt" data-why="No — npm is a developer tool on your machine; it never runs in the visitor's browser.">It runs npm to fetch the page's code</button>
+    <p class="fb"></p>
+  </div>
+
+  <!-- ================= SOURCE ================= -->
+  <div class="source">
+    <span class="tag">Read this next (≈15 min, the best free source)</span>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works">MDN
+    — How the web works</a>. Mozilla's curriculum is the single most trusted, free
+    resource on the web platform. This short page makes layer ③ concrete.
+  </div>
+
+  <!-- ================= ASK ================= -->
+  <p class="ask">I'm your teacher for this — <b>ask me anything</b> that's fuzzy. "Show
+  me where JSX becomes JavaScript in my project." "What's a component, exactly?" "Why
+  TypeScript and not plain JavaScript?" There are no dumb questions, and follow-ups are
+  how the map turns into understanding.</p>
+
+  <div class="nav">
+    <a href="../reference/glossary.html">→ Glossary (your reference sheet)</a>
+    <span style="color:var(--faint)">Next: Lesson 02 — Reading an HTML page</span>
+  </div>
+
+</article>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>

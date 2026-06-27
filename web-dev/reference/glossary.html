@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glossary · Web-Dev Literacy</title>
+  <link rel="stylesheet" href="../assets/lesson.css" />
+</head>
+<body>
+<article class="lesson">
+
+  <p class="eyebrow">Reference · Authoritative</p>
+  <h1>Glossary</h1>
+  <p class="sub">The compressed essence. Every term is tagged with its bucket from
+  <a href="../lessons/0001-the-map-of-web-development.html">Lesson 01's map</a> and
+  pinned to a real spot in your FHA project. Print it; keep it beside you.</p>
+
+  <div class="legend">
+    <span><span class="pill b3">Browser ③</span> what the browser runs</span>
+    <span><span class="pill b1">Author ①</span> what you write</span>
+    <span><span class="pill b2">Toolchain ②</span> the build tools</span>
+    <span><span class="pill bc">Concept</span> an idea, not a thing</span>
+  </div>
+
+  <div class="term">
+    <h3>HTML <span class="pill b3">Browser ③</span></h3>
+    <p class="def">HyperText Markup Language — the <em>structure</em> of a page (headings,
+    paragraphs, buttons, images). The nouns.</p>
+    <p class="fha"><b>In FHA</b> <code>index.html</code></p>
+  </div>
+
+  <div class="term">
+    <h3>CSS <span class="pill b3">Browser ③</span></h3>
+    <p class="def">Cascading Style Sheets — the <em>look</em>: colour, spacing, fonts,
+    layout. Styles the HTML nouns.</p>
+    <p class="fha"><b>In FHA</b> <code>styles/global.css</code>, <code>Button.css</code></p>
+  </div>
+
+  <div class="term">
+    <h3>JavaScript (JS) <span class="pill b3">Browser ③</span></h3>
+    <p class="def">The only programming language a browser runs. Provides
+    <em>behaviour</em> — responding to clicks, changing the page over time.</p>
+    <p class="fha"><b>In FHA</b> the compiled output of every <code>.tsx</code> file</p>
+  </div>
+
+  <div class="term">
+    <h3>DOM <span class="pill bc">Concept</span></h3>
+    <p class="def">Document Object Model — the live, in-memory tree of the page that
+    JavaScript reads and changes. "Changing the page" means changing the DOM.</p>
+    <p class="fha"><b>In FHA</b> what React updates for you under the hood</p>
+  </div>
+
+  <div class="term">
+    <h3>React <span class="pill b1">Author ①</span></h3>
+    <p class="def">A <em>library</em> for building UIs out of reusable
+    <em>components</em>. You describe what the screen should look like; React keeps the
+    DOM in sync.</p>
+    <p class="fha"><b>In FHA</b> every <code>.tsx</code> file; <code>react</code> in <code>package.json</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Component <span class="pill bc">Concept</span></h3>
+    <p class="def">A reusable, self-contained piece of UI — a function that returns a
+    chunk of page. Defined once, used many times.</p>
+    <p class="fha"><b>In FHA</b> <code>src/components/Button/Button.tsx</code></p>
+  </div>
+
+  <div class="term">
+    <h3>JSX / TSX <span class="pill b1">Author ①</span></h3>
+    <p class="def">HTML-looking syntax written <em>inside</em> JavaScript/TypeScript. The
+    build step compiles it to plain JS. <code>.tsx</code> = TypeScript + JSX.</p>
+    <p class="fha"><b>In FHA</b> the <code>&lt;Button&gt;…&lt;/Button&gt;</code>-style markup in any <code>.tsx</code></p>
+  </div>
+
+  <div class="term">
+    <h3>TypeScript (TS) <span class="pill b1">Author ①</span></h3>
+    <p class="def">JavaScript plus a <em>type checker</em> that flags mismatches before the
+    code runs. A "superset" — all JS is valid TS. Compiled down to JS.</p>
+    <p class="fha"><b>In FHA</b> <code>.ts</code>/<code>.tsx</code> files; <code>tsconfig.json</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Library vs Framework <span class="pill bc">Concept</span></h3>
+    <p class="def">A <em>library</em> is code you call when you want (three.js, Lenis). A
+    <em>framework</em> is code that calls you — it sets the structure and you fill in the
+    blanks. React sits in between; people use both words for it.</p>
+    <p class="fha"><b>In FHA</b> <code>three</code> &amp; <code>lenis</code> are libraries</p>
+  </div>
+
+  <div class="term">
+    <h3>npm <span class="pill b2">Toolchain ②</span></h3>
+    <p class="def">Node Package Manager — downloads and version-tracks third-party
+    libraries. Your <code>pip</code> / <code>install.packages()</code> for the web.</p>
+    <p class="fha"><b>In FHA</b> <code>npm install</code>, <code>npm run dev</code></p>
+  </div>
+
+  <div class="term">
+    <h3>package.json <span class="pill b2">Toolchain ②</span></h3>
+    <p class="def">The project's recipe: its name, its scripts (<code>dev</code>,
+    <code>build</code>), and exactly which libraries + versions it depends on.</p>
+    <p class="fha"><b>In FHA</b> lists <code>react</code>, <code>three</code>, <code>lenis</code>, <code>vite</code>…</p>
+  </div>
+
+  <div class="term">
+    <h3>node_modules/ <span class="pill b2">Toolchain ②</span></h3>
+    <p class="def">The folder where npm dumps every downloaded library. Huge, generated,
+    never edited by hand, never committed to git. Your virtual-env library folder.</p>
+    <p class="fha"><b>In FHA</b> created by <code>npm install</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Build tool / Bundler <span class="pill b2">Toolchain ②</span></h3>
+    <p class="def">Translates author-layer code (React/TS/JSX) into the plain
+    HTML/CSS/JS the browser runs, and bundles many files into few. The compiler of the web.</p>
+    <p class="fha"><b>In FHA</b> Vite</p>
+  </div>
+
+  <div class="term">
+    <h3>Vite <span class="pill b2">Toolchain ②</span></h3>
+    <p class="def">The specific build tool here. <code>npm run dev</code> = live server that
+    recompiles on save; <code>npm run build</code> = optimised output for release.</p>
+    <p class="fha"><b>In FHA</b> <code>vite.config.ts</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Dev server / Hot reload <span class="pill bc">Concept</span></h3>
+    <p class="def">A local server that serves your site while you work and refreshes the
+    instant you save — like re-running a notebook cell automatically.</p>
+    <p class="fha"><b>In FHA</b> <code>npm run dev</code> (Vite, opens the site)</p>
+  </div>
+
+  <div class="term">
+    <h3>dist/ (build output) <span class="pill bc">Concept</span></h3>
+    <p class="def">The folder of final, compiled, browser-ready files produced by
+    <code>npm run build</code>. This is what actually gets deployed.</p>
+    <p class="fha"><b>In FHA</b> <code>dist/</code> after a build</p>
+  </div>
+
+  <div class="term">
+    <h3>CSS custom property / Design token <span class="pill b3">Browser ③</span></h3>
+    <p class="def">A reusable named value in CSS (<code>--name: value</code>) — a variable
+    for colours, spacing, fonts. "Design tokens" = the branded set of them.</p>
+    <p class="fha"><b>In FHA</b> the <code>--fha-*</code> values in <code>styles/global.css</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Front end vs Back end <span class="pill bc">Concept</span></h3>
+    <p class="def">Front end = everything running in the visitor's browser (this whole
+    map). Back end = a server + database storing/serving data. FHA is front-end only.</p>
+    <p class="fha"><b>In FHA</b> no back end — it's a marketing site</p>
+  </div>
+
+  <p class="ask">Missing a term you keep hearing? <b>Tell me</b> and I'll add it here —
+  the glossary grows with you.</p>
+
+  <div class="nav">
+    <a href="../lessons/0001-the-map-of-web-development.html">← Lesson 01 · The Map</a>
+    <span style="color:var(--faint)">Authoritative — lessons defer to these definitions</span>
+  </div>
+
+</article>
+</body>
+</html>
