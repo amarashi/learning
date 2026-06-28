@@ -28,6 +28,20 @@
   Ink `#232026`, Vermilion `#E14434` (used for *principles*), Teal `#1F7A8C`
   (used for *elements*), Ochre `#C9962B` (concepts/neutral accent), warm paper.
 
+## Visuals (this is a *visual* subject — always show, don't just tell)
+- The `/teach` SKILL.md now has a **Visuals & Examples** ladder. Follow it here:
+  1. **Native HTML/CSS/SVG first** — best for design because it's *precise* and
+     interactive. Reusable specimen components live in `assets/lesson.css`
+     (`.specimens`, `.specimen.before/.after`, `.flyer` demo). Lesson 01 now has a
+     live before/after flyer built this way.
+  2. **Real web examples** (cited) when authenticity matters — famous posters, real UI.
+  3. **Generated images** only for photographic/illustrative needs, never for type or
+     precise layout (models render those wrong).
+- **Generation backend status (2026-06-28):** no image generator is reliably wired in.
+  HF Z-Image-Turbo exists but anonymous quota is exhausted → needs `HF_TOKEN`.
+  ChatGPT-image / nano-banana (Gemini) are NOT connected — would need an API key/MCP.
+  So treat generation as optional; never let a lesson depend on it.
+
 ## Open threads
 - Mission set session 1: train the *eye* + vocabulary first; production/tools later.
   Three drivers ranked by him: make own graphics, judge & brief, lift web projects.

@@ -329,6 +329,59 @@ code {
 .term .eg b { color: var(--element); font-size: 0.78rem;
   letter-spacing: 0.04em; text-transform: uppercase; }
 
+/* ---- Visual specimens (before/after demos) --------------------------- */
+/* Native HTML/CSS examples so design lessons SHOW, not just describe. */
+.specimens {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.8rem 0;
+}
+.specimen {
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background: var(--panel);
+}
+.specimen > .cap {
+  font-family: var(--sans); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 0.9rem;
+}
+.specimen.before > .cap { color: var(--muted); background: #f2eee6; }
+.specimen.after  > .cap { color: #fff; background: var(--principle); }
+.specimen .stage {
+  padding: 1.5rem 1.3rem; min-height: 12rem; background: #fff;
+  border-top: 1px solid var(--line);
+}
+.specimen .note {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+  padding: 0.55rem 0.9rem 0.85rem; margin: 0; max-width: none;
+}
+
+/* Demo: a tiny event flyer rendered two ways (same words) */
+.flyer { color: var(--ink); }
+.flyer.flat { text-align: center; }
+.flyer.flat .l {
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 500;
+  color: #5a5560; margin: 0.6rem 0;
+}
+.flyer.designed { text-align: left; }
+.flyer.designed .title {
+  font-family: var(--serif); font-size: 1.95rem; font-weight: 700;
+  line-height: 1.0; margin: 0 0 0.15rem; color: var(--ink); letter-spacing: -0.01em;
+}
+.flyer.designed .tagline {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+  color: var(--principle); margin: 0;
+}
+.flyer.designed .group { margin-top: 1.3rem; }
+.flyer.designed .group .l {
+  font-family: var(--sans); font-size: 0.9rem; color: #46424c; margin: 0.12rem 0;
+}
+.flyer.designed .price {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 700;
+  margin-top: 1.3rem; color: var(--ink); letter-spacing: 0.02em;
+}
+
+@media (max-width: 560px) {
+  .specimens { grid-template-columns: 1fr; }
+}
+
 /* ---- Print ----------------------------------------------------------- */
 @media print {
   body { background: #fff; font-size: 11pt; }
