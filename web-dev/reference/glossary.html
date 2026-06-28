@@ -30,6 +30,36 @@
   </div>
 
   <div class="term">
+    <h3>Element <span class="pill b3">Browser ③</span></h3>
+    <p class="def">The one repeating shape of HTML: content wrapped in a matching pair of
+    <em>tags</em> (e.g. <code>&lt;p&gt;…&lt;/p&gt;</code>). Elements nest inside elements,
+    making the page a tree.</p>
+    <p class="fha"><b>In FHA</b> <code>&lt;div id="root"&gt;</code> in <code>index.html</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Tag <span class="pill b3">Browser ③</span></h3>
+    <p class="def">The marker that opens or closes an element: <code>&lt;p&gt;</code> opens,
+    <code>&lt;/p&gt;</code> closes. The name in the tag decides what kind of element it is.</p>
+    <p class="fha"><b>In FHA</b> <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;script&gt;</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Attribute <span class="pill b3">Browser ③</span></h3>
+    <p class="def">A <code>name="value"</code> setting inside an opening tag that configures
+    the element — like a keyword argument to a function call.</p>
+    <p class="fha"><b>In FHA</b> <code>id="root"</code>, <code>src="/src/main.tsx"</code></p>
+  </div>
+
+  <div class="term">
+    <h3>head vs body <span class="pill b3">Browser ③</span></h3>
+    <p class="def"><code>&lt;head&gt;</code> = machine-facing info about the page (title,
+    settings, links to CSS) — invisible. <code>&lt;body&gt;</code> = everything the visitor
+    actually sees.</p>
+    <p class="fha"><b>In FHA</b> the two halves of <code>index.html</code></p>
+  </div>
+
+  <div class="term">
     <h3>CSS <span class="pill b3">Browser ③</span></h3>
     <p class="def">Cascading Style Sheets — the <em>look</em>: colour, spacing, fonts,
     layout. Styles the HTML nouns.</p>
@@ -63,6 +93,14 @@
     <p class="def">A reusable, self-contained piece of UI — a function that returns a
     chunk of page. Defined once, used many times.</p>
     <p class="fha"><b>In FHA</b> <code>src/components/Button/Button.tsx</code></p>
+  </div>
+
+  <div class="term">
+    <h3>Props <span class="pill bc">Concept</span></h3>
+    <p class="def">The inputs you pass into a component — written like HTML attributes,
+    received like function arguments. <code>children</code> is the special prop holding the
+    content between the tags.</p>
+    <p class="fha"><b>In FHA</b> <code>&lt;Button variant="accent"&gt;Get involved&lt;/Button&gt;</code></p>
   </div>
 
   <div class="term">

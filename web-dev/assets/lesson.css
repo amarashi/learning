@@ -335,12 +335,92 @@ code {
 .entry .desc { color: var(--ink); }
 .entry .alt { color: var(--muted); font-style: italic; font-size: 0.92rem; }
 
+/* ---- Code blocks (reusable across every code-reading lesson) ---------- */
+.code {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  background: #faf8f2;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.2rem;
+  margin: 1.4rem 0;
+  overflow-x: auto;
+  color: #4a4458;
+  white-space: pre;
+  max-width: none;
+  tab-size: 2;
+}
+.code .cmt { color: var(--faint); font-style: italic; }
+.code .hl  { background: #fdeef5; border-radius: 3px; padding: 0 0.15em; color: var(--navy); font-weight: 600; }
+.code .dim { color: var(--faint); }
+.codecap {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+  margin: -1rem 0 1.6rem; text-align: right; max-width: none;
+}
+
+/* ---- Element-anatomy diagram (label the parts of one element) --------- */
+.anatomy { text-align: center; margin: 2.2rem 0; }
+.anatomy .specimen {
+  font-family: var(--mono); font-size: 1.5rem; line-height: 1.5;
+  margin: 0 0 1.1rem; max-width: none;
+}
+.a-tag     { color: var(--azure); font-weight: 700; }
+.a-attr    { color: var(--pink);  font-weight: 700; }
+.a-val     { color: #2e7d4f; }
+.a-eq      { color: var(--muted); }
+.a-content { color: var(--navy); background: #f3f0e8; padding: 0 0.2em; border-radius: 3px; }
+.a-legend {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 0.45rem 1.3rem; font-family: var(--sans); font-size: 0.8rem; color: var(--muted);
+  max-width: none;
+}
+.a-legend span { white-space: nowrap; }
+.a-legend i.sw {
+  display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px;
+  vertical-align: -0.05em; margin-right: 0.4rem;
+}
+.a-legend i.tag     { background: var(--azure); }
+.a-legend i.attr    { background: var(--pink); }
+.a-legend i.val     { background: #2e7d4f; }
+.a-legend i.content { background: #cabfa0; }
+
+/* ---- Component tree (reusable: shows how components nest) ------------- */
+.tree { margin: 2rem 0; }
+.tree ul { list-style: none; margin: 0; padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+.tree > ul { padding-left: 0; border-left: none; }
+.tree li { position: relative; margin: 0.4rem 0; }
+.tree li::before {
+  content: ""; position: absolute; left: -1.5rem; top: 0.95rem;
+  width: 1.1rem; height: 1px; background: var(--rule);
+}
+.tree > ul > li::before { display: none; }
+.tree .node {
+  font-family: var(--mono); font-size: 0.82rem;
+  border: 1.5px solid var(--rule); border-radius: 7px;
+  padding: 0.28rem 0.62rem; background: var(--panel);
+}
+.tree .node.custom { border-color: var(--pink); color: var(--navy); font-weight: 600; }
+.tree .node.html   { border-color: var(--azure); color: #2a7a52; }
+.tree .note { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin-left: 0.55rem; }
+.tree-key {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1.3rem; margin: 1rem 0 0; max-width: none;
+}
+.tree-key i.sw {
+  display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px;
+  border: 1.5px solid; vertical-align: -0.05em; margin-right: 0.4rem;
+}
+.tree-key i.custom { border-color: var(--pink); }
+.tree-key i.html   { border-color: var(--azure); }
+
 /* ---- Print ----------------------------------------------------------- */
 @media print {
   body { background: #fff; font-size: 11pt; }
   .lesson { max-width: none; padding: 0; }
   .quiz, .ask, .nav { display: none; }
-  .layer, .box, .win, .callout, .source { break-inside: avoid; }
+  .layer, .box, .win, .callout, .source, .code, .anatomy, .tree { break-inside: avoid; }
   a { color: var(--ink); text-decoration: none; }
 }
 

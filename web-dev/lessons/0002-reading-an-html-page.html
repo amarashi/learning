@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 02 · Reading an HTML Page</title>
+  <link rel="stylesheet" href="../assets/lesson.css" />
+</head>
+<body>
+<article class="lesson">
+
+  <p class="eyebrow">Lesson 02 · Layer ③ — HTML</p>
+  <h1>Reading an HTML Page</h1>
+  <p class="sub">"Read &amp; tweak" starts here. Last time you got the
+  <a href="0001-the-map-of-web-development.html">map</a>; now we land in the bedrock box
+  — and read your FHA project's actual <code>index.html</code>, line by line.</p>
+
+  <p class="lede">HTML has essentially <strong>one</strong> repeating shape. Learn to see
+  that one shape and you can read any page on the web — including the surprising,
+  nearly-empty one sitting at the root of your own project.</p>
+
+  <!-- ================= THE ONE SHAPE ================= -->
+  <h2>The one shape: an element</h2>
+  <p>Everything in HTML is an <strong>element</strong>. An element is a piece of content
+  wrapped in a matching pair of <strong>tags</strong>. Here is the whole grammar in one
+  specimen:</p>
+
+  <div class="anatomy">
+    <p class="specimen"><span class="a-tag">&lt;a</span> <span class="a-attr">href</span><span class="a-eq">=</span><span class="a-val">"/about"</span><span class="a-tag">&gt;</span><span class="a-content">Our team</span><span class="a-tag">&lt;/a&gt;</span></p>
+    <div class="a-legend">
+      <span><i class="sw tag"></i>opening &amp; closing tag</span>
+      <span><i class="sw attr"></i>attribute name</span>
+      <span><i class="sw val"></i>attribute value</span>
+      <span><i class="sw content"></i>content (what you see)</span>
+    </div>
+  </div>
+
+  <ul>
+    <li>The <strong>tags</strong> mark where the element starts and ends. The closing tag
+    is the same name with a slash: <code>&lt;a&gt;</code> … <code>&lt;/a&gt;</code>. The
+    name (<code>a</code>) decides <em>what kind</em> of thing it is — here, a link.</li>
+    <li><strong>Attributes</strong> live inside the opening tag and configure the element:
+    <code>href="/about"</code> says <em>where the link goes</em>. They're always
+    <code>name="value"</code> pairs.</li>
+    <li>The <strong>content</strong> is what sits between the tags — often the visible text,
+    or <em>more elements</em>.</li>
+  </ul>
+
+  <div class="callout analogy">
+    <span class="tag">Maps to what you already know</span>
+    An element is just a function call with the contents as the body and attributes as
+    keyword arguments — think <code>a(href="/about", "Our team")</code> in R/Python. And
+    because content can hold more elements, a page is a <strong>nested tree</strong>, exactly
+    like nested lists or a JSON object. Indentation in the file shows the nesting depth.
+  </div>
+
+  <p>A handful of tags do not wrap content — <code>&lt;meta&gt;</code> and
+  <code>&lt;img&gt;</code> are <em>self-closing</em> (no separate end tag) because they
+  <em>are</em> their attributes. That's the only exception to the one shape.</p>
+
+  <p class="cite">Reference: MDN —
+  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content">Anatomy
+  of an HTML element</a> &amp;
+  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">basic
+  HTML syntax</a>.</p>
+
+  <!-- ================= THE SKELETON ================= -->
+  <h2>Every page has the same skeleton</h2>
+  <p>Three elements wrap every HTML document, and they nest in a fixed order:</p>
+
+  <pre class="code"><span class="a-tag">&lt;html&gt;</span>            <span class="cmt">the whole document</span>
+  <span class="a-tag">&lt;head&gt;</span>          <span class="cmt">info <em>about</em> the page — invisible (title, settings, links to CSS)</span>
+  <span class="a-tag">&lt;body&gt;</span>          <span class="cmt">the page itself — everything the visitor actually sees</span>
+<span class="a-tag">&lt;/html&gt;</span></pre>
+
+  <p>So the first question to ask of any HTML file is: <strong>is this line in the
+  <code>head</code> (machine-facing) or the <code>body</code> (human-facing)?</strong>
+  That single split explains most of what you'll read.</p>
+
+  <!-- ================= THE REAL FILE ================= -->
+  <h2>Now read your own: FHA's <code>index.html</code></h2>
+  <p>This is the real, unedited file from your project. Read it top to bottom — you now
+  know every shape in it:</p>
+
+  <pre class="code"><span class="a-tag">&lt;!doctype html&gt;</span>                          <span class="cmt">"this is a modern HTML file"</span>
+<span class="a-tag">&lt;html</span> <span class="a-attr">lang</span>=<span class="a-val">"en"</span><span class="a-tag">&gt;</span>
+  <span class="a-tag">&lt;head&gt;</span>
+    <span class="a-tag">&lt;meta</span> <span class="a-attr">charset</span>=<span class="a-val">"utf-8"</span> <span class="a-tag">/&gt;</span>
+    <span class="a-tag">&lt;meta</span> <span class="a-attr">name</span>=<span class="a-val">"viewport"</span> <span class="a-attr">content</span>=<span class="a-val">"width=device-width, initial-scale=1"</span> <span class="a-tag">/&gt;</span>
+    <span class="a-tag">&lt;meta</span> <span class="a-attr">name</span>=<span class="a-val">"description"</span> <span class="a-attr">content</span>=<span class="a-val">"Future Health Australia — …accelerating data, digital and AI-enabled care."</span> <span class="a-tag">/&gt;</span>
+    <span class="a-tag">&lt;title&gt;</span><span class="a-content">Future Health Australia — Bridging innovation and impact</span><span class="a-tag">&lt;/title&gt;</span>
+  <span class="a-tag">&lt;/head&gt;</span>
+  <span class="a-tag">&lt;body&gt;</span>
+    <span class="hl">&lt;div id="root"&gt;&lt;/div&gt;</span>
+    <span class="hl">&lt;script type="module" src="/src/main.tsx"&gt;&lt;/script&gt;</span>
+  <span class="a-tag">&lt;/body&gt;</span>
+<span class="a-tag">&lt;/html&gt;</span></pre>
+  <p class="codecap">your file · <code>fha/index.html</code></p>
+
+  <p>The <code>&lt;head&gt;</code> is exactly what we said — machine-facing settings:
+  the language, the character set, the mobile <code>viewport</code> rule, the search-engine
+  <code>description</code>, and the browser-tab <code>title</code>. Nothing here is drawn on
+  the page.</p>
+
+  <!-- ================= THE REVEAL ================= -->
+  <h2>The surprise in the <code>body</code></h2>
+  <p>Look at the highlighted lines. The entire visible part of your website is
+  <strong>two lines</strong>, and the first one is an <em>empty</em> box:</p>
+  <ul>
+    <li><code>&lt;div id="root"&gt;&lt;/div&gt;</code> — a <code>div</code> is a generic
+    container (a plain box with no meaning of its own). This one is empty. The
+    <code>id="root"</code> is just a <strong>name tag</strong> so other code can find it.</li>
+    <li><code>&lt;script … src="/src/main.tsx"&gt;</code> — this loads and runs your
+    JavaScript application. It finds the empty <code>root</code> box and
+    <strong>fills it with the entire page</strong> — the hero, the nav, every section.</li>
+  </ul>
+
+  <div class="callout">
+    <span class="tag">This is the big one</span>
+    In a React project, <code>index.html</code> is <strong>not</strong> where the page lives
+    — it's a near-empty <em>launchpad</em>. The real structure is authored up in
+    <strong>Layer ①</strong> as <code>.tsx</code> components, and the
+    <strong>build step</strong> wires it to this <code>root</code> div. So if you go looking
+    for a heading's text here and can't find it — that's expected. It's in a
+    <code>.tsx</code> file. <em>Knowing where NOT to look is half of reading code.</em>
+  </div>
+
+  <div class="callout analogy">
+    <span class="tag">Maps to what you already know</span>
+    Think of <code>index.html</code> as a tiny <code>main()</code> that does almost nothing
+    except call your real program. <code>root</code> is the empty plot device you hand to
+    your library; <code>main.tsx</code> is the script that draws into it. The page you see
+    is rendered output, not the source.
+  </div>
+
+  <!-- ================= THE WIN ================= -->
+  <div class="win">
+    <span class="tag">Your win this lesson</span>
+    You can open any HTML file and name what you're looking at — <strong>element, tag,
+    attribute, content</strong> — tell <strong>head</strong> (machine) from
+    <strong>body</strong> (human), and explain why a React app's <code>index.html</code> is
+    nearly empty. You just read your own project's front door.
+  </div>
+
+  <!-- ================= QUIZ ================= -->
+  <p>Quick check — recall only, no clues in the wording:</p>
+
+  <div class="quiz">
+    <p class="q">1. In <code>&lt;a href="/about"&gt;Team&lt;/a&gt;</code>, what is
+    <code>href="/about"</code>?</p>
+    <button class="opt" data-correct data-why="Right — name=&quot;value&quot; inside the opening tag is an attribute; it configures the element (here, where the link points).">An attribute on the tag</button>
+    <button class="opt" data-why="No — the content is what sits between the tags. Here that's the word &quot;Team&quot;, not the href.">The content of element</button>
+    <button class="opt" data-why="No — there's only one element here. An attribute lives inside a tag; it isn't a separate nested element.">A separate nested element</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">2. Your <code>&lt;body&gt;</code> is basically
+    <code>&lt;div id="root"&gt;&lt;/div&gt;</code>. Why is the page nearly empty?</p>
+    <button class="opt" data-correct data-why="Exactly — React runs at load time, finds the empty root div, and injects the whole page into it. The structure is authored in .tsx files.">React builds the content there</button>
+    <button class="opt" data-why="No — the build step compiles and bundles your code; it never strips your page's content out. The emptiness is by design.">The build step deletes everything</button>
+    <button class="opt" data-why="No — the site is full of content; it's just inserted by JavaScript at runtime rather than written into this file.">The website has no content</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">3. What does <code>&lt;script type="module" src="/src/main.tsx"&gt;</code>
+    do on this page?</p>
+    <button class="opt" data-correct data-why="Yes — it loads and runs your JavaScript app, which then renders everything into the root div.">It boots the JavaScript app</button>
+    <button class="opt" data-why="No — styling is CSS's job (Layer ③, separate files). A script tag runs behaviour, it doesn't define looks.">It defines the page styles</button>
+    <button class="opt" data-why="No — npm is a Layer ② toolchain step on your machine, not something the browser does. Remember the buckets from Lesson 01.">It downloads the npm libraries</button>
+    <p class="fb"></p>
+  </div>
+
+  <!-- ================= SOURCE ================= -->
+  <div class="source">
+    <span class="tag">Read this next (≈10 min, the best free source)</span>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content">MDN
+    — Dealing with files &amp; HTML basics</a>. Mozilla's curriculum walks the same element /
+    head / body structure you just read, with live examples you can poke at.
+  </div>
+
+  <!-- ================= ASK ================= -->
+  <p class="ask">I'm your teacher — <b>ask me anything</b> that's fuzzy. "Show me the
+  <code>.tsx</code> file that fills <code>root</code>." "What other tags will I see most
+  often?" "Open my index.html and let's tweak the <code>&lt;title&gt;</code> together."
+  Follow-ups are how the map turns into understanding.</p>
+
+  <div class="nav">
+    <a href="0001-the-map-of-web-development.html">← Lesson 01 · The Map</a>
+    <a href="0003-reading-a-component.html">Next: Lesson 03 — Reading a Component →</a>
+  </div>
+
+</article>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>

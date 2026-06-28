@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 03 · Reading a Component</title>
+  <link rel="stylesheet" href="../assets/lesson.css" />
+</head>
+<body>
+<article class="lesson">
+
+  <p class="eyebrow">Lesson 03 · Layer ① — React &amp; JSX</p>
+  <h1>Reading a Component</h1>
+  <p class="sub">Last lesson ended on a cliffhanger: your <code>index.html</code> is nearly
+  empty because <a href="0002-reading-an-html-page.html">the page lives in <code>.tsx</code>
+  files</a>. This is where we go find it.</p>
+
+  <p class="lede">A React app is a <strong>tree of components</strong>. Learn to read one
+  component — a function that returns HTML-shaped markup — and the whole
+  <code>src/</code> folder stops being a mystery.</p>
+
+  <!-- ================= THE BRIDGE ================= -->
+  <h2>The line that fills the empty box</h2>
+  <p>Remember the <code>&lt;div id="root"&gt;</code> and the
+  <code>&lt;script src="/src/main.tsx"&gt;</code>? Here is that <code>main.tsx</code>, in
+  full — the bridge from HTML into React:</p>
+
+  <pre class="code"><span class="dim">import { createRoot } from 'react-dom/client'</span>
+<span class="dim">import { LandingPage } from './LandingPage'</span>
+
+const container = document.getElementById(<span class="a-val">'root'</span>)   <span class="cmt">find the empty box</span>
+
+createRoot(container).render(
+  <span class="hl">&lt;LandingPage /&gt;</span>                                <span class="cmt">draw this into it</span>
+)</pre>
+  <p class="codecap">your file · <code>src/main.tsx</code> (lightly trimmed)</p>
+
+  <p>That's the entire handoff: <em>grab the <code>root</code> div, render
+  <code>&lt;LandingPage /&gt;</code> inside it.</em> Notice <code>&lt;LandingPage /&gt;</code>
+  is written <em>like an HTML tag</em> — but there is no such HTML tag. It's
+  <strong>your own component, used like a tag</strong>. That's the central trick of React.</p>
+
+  <!-- ================= THE TREE ================= -->
+  <h2>What a "tree of components" means</h2>
+  <p><code>LandingPage</code> doesn't draw everything itself — it's made of smaller
+  components, which are made of smaller ones still, until at the very bottom you finally hit
+  real HTML tags. This is the actual shape of your site:</p>
+
+  <div class="tree">
+    <ul>
+      <li><span class="node custom">&lt;LandingPage&gt;</span> <span class="note">your whole page</span>
+        <ul>
+          <li><span class="node custom">&lt;Header&gt;</span></li>
+          <li><span class="node custom">&lt;FutureHealthHero&gt;</span> <span class="note">the 3-D hero</span></li>
+          <li><span class="node custom">&lt;Section&gt;</span>
+            <ul>
+              <li><span class="node custom">&lt;Heading&gt;</span></li>
+              <li><span class="node custom">&lt;Stat&gt;</span> <span class="note">a metric</span></li>
+              <li><span class="node custom">&lt;Button&gt;</span>
+                <ul>
+                  <li><span class="node html">&lt;button&gt;</span> <span class="note">← finally, a real HTML tag</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="tree-key">
+      <span><i class="sw custom"></i>your component (Capitalised) — Author ①</span>
+      <span><i class="sw html"></i>built-in HTML tag (lowercase) — Browser ③</span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">The single most useful reading rule</span>
+    <strong>Capitalised tag = a component you (or a library) wrote</strong> — go find its
+    <code>.tsx</code> file to see inside. <strong>lowercase tag = a built-in HTML element</strong>
+    — it bottoms out in the browser. <code>&lt;Button&gt;</code> is yours;
+    <code>&lt;button&gt;</code> is the browser's.
+  </div>
+
+  <!-- ================= ANATOMY OF A COMPONENT ================= -->
+  <h2>Inside one component</h2>
+  <p>A <strong>component is just a function that returns markup</strong>. Here's the heart
+  of your real <code>Button</code>, with the TypeScript noise stripped away:</p>
+
+  <pre class="code"><span class="cmt">// a function, named with a Capital letter</span>
+function <span class="a-attr">Button</span>({ variant, children }) {
+  return (
+    <span class="a-tag">&lt;button</span> <span class="a-attr">className</span>=<span class="a-val">{`fha-button fha-button--${variant}`}</span><span class="a-tag">&gt;</span>
+      <span class="hl">{children}</span>
+    <span class="a-tag">&lt;/button&gt;</span>
+  )
+}</pre>
+  <p class="codecap">your file · <code>src/components/Button/Button.tsx</code> (simplified)</p>
+
+  <p>Three things to see, and only three:</p>
+  <ul>
+    <li><strong>It returns JSX</strong> — that HTML-shaped markup inside the
+    <code>return</code>. JSX is <em>HTML living inside JavaScript</em>. Two tiny spelling
+    differences from real HTML: it's <code>className</code> (not <code>class</code>), and
+    every tag must close.</li>
+    <li><strong>The curly braces <code>{ }</code> are an escape hatch back into JavaScript.</strong>
+    Outside them you're writing markup; inside them you're writing code — a variable, a
+    calculation, anything. <code>{children}</code> means "drop whatever was passed in,
+    right here."</li>
+    <li><strong><code>{ variant, children }</code> are its props</strong> — the inputs to
+    the function (see below).</li>
+  </ul>
+
+  <!-- ================= PROPS ================= -->
+  <h2>Props: a component's inputs</h2>
+  <p><strong>Props are to a component what attributes are to an HTML tag</strong> — and what
+  arguments are to a function. You pass them the same way you'd write attributes:</p>
+
+  <pre class="code"><span class="a-tag">&lt;Button</span> <span class="a-attr">variant</span>=<span class="a-val">"accent"</span><span class="a-tag">&gt;</span><span class="a-content">Get involved</span><span class="a-tag">&lt;/Button&gt;</span></pre>
+
+  <p>Here <code>variant="accent"</code> is a prop (make it berry-pink), and
+  <code>Get involved</code> — the content between the tags — arrives inside the component as
+  <code>children</code>. Change <code>"accent"</code> to <code>"primary"</code> and the same
+  button turns navy. <em>That</em> is a small, safe, predictable tweak — exactly your mission.</p>
+
+  <div class="callout analogy">
+    <span class="tag">Maps to what you already know</span>
+    A component is a function that returns a figure; props are its arguments.
+    <code>&lt;Button variant="accent"&gt;Get involved&lt;/Button&gt;</code> is just
+    <code>Button(variant="accent", children="Get involved")</code> in disguise. And the JSX
+    <code>{ }</code> is string interpolation — R's <code>glue()</code> or a Python f-string —
+    splicing a live value into otherwise-static markup.
+  </div>
+
+  <div class="callout">
+    <span class="tag">What we're deliberately ignoring (for now)</span>
+    Real <code>Button.tsx</code> also has <code>interface ButtonProps</code>, default values
+    like <code>variant = 'primary'</code>, <code>{...rest}</code>, and a <code>cx(…)</code>
+    helper. That's <strong>TypeScript typing</strong> and plumbing — important later, but pure
+    noise for <em>reading</em> today. Skip past it to the <code>return</code> and you'll
+    understand what the component renders.
+  </div>
+
+  <!-- ================= THE WIN ================= -->
+  <div class="win">
+    <span class="tag">Your win this lesson</span>
+    You can open any <code>.tsx</code> file, scroll to its <code>return</code>, and read the
+    JSX: tell <strong>your components</strong> (Capitalised) from <strong>HTML tags</strong>
+    (lowercase), spot the <strong>props</strong> being passed, and know that
+    <strong><code>{ }</code> means "real JavaScript here."</strong> You can now trace your
+    page from <code>root</code> down to the markup.
+  </div>
+
+  <!-- ================= QUIZ ================= -->
+  <p>Quick check — recall only, no clues in the wording:</p>
+
+  <div class="quiz">
+    <p class="q">1. You see <code>&lt;Section&gt;</code> in a <code>.tsx</code> file. What
+    does the capital S tell you?</p>
+    <button class="opt" data-correct data-why="Right — capitalised means it's a component someone wrote; open its .tsx file to see what it renders.">It is a written component</button>
+    <button class="opt" data-why="No — lowercase tags (like section) are built-in HTML. The capital letter is precisely what marks it as a custom component.">It is built-in HTML</button>
+    <button class="opt" data-why="No — capitalisation signals component-vs-HTML, not styling. CSS is a separate concern entirely.">It is a CSS style</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">2. In <code>&lt;Button variant="accent"&gt;</code>, what is
+    <code>variant="accent"</code>?</p>
+    <button class="opt" data-correct data-why="Exactly — a prop is an input you pass to a component, written just like an HTML attribute and received as an argument.">A prop passed to it</button>
+    <button class="opt" data-why="No — the file name is fixed (Button.tsx). A prop is a per-use input, not the component's identity.">The name of file</button>
+    <button class="opt" data-why="No — the visible text is the children (between the tags). variant is a separate configuration input.">The visible button text</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz">
+    <p class="q">3. Inside JSX you see <code>{`fha-button--${variant}`}</code>. What do the
+    curly braces mean?</p>
+    <button class="opt" data-correct data-why="Yes — { } is the escape hatch from markup back into live JavaScript, so a value can be spliced in.">Run JavaScript right here</button>
+    <button class="opt" data-why="No — they're not decoration or literal text; they switch from markup mode into real code that gets evaluated.">Print these literal braces</button>
+    <button class="opt" data-why="No — that's not their job. Comments in JSX look different; braces mean &quot;evaluate this expression.&quot;">Mark a code comment</button>
+    <p class="fb"></p>
+  </div>
+
+  <!-- ================= SOURCE ================= -->
+  <div class="source">
+    <span class="tag">Read this next (≈15 min, the best free source)</span>
+    <a href="https://react.dev/learn/your-first-component">react.dev — Your First Component</a>
+    and <a href="https://react.dev/learn/writing-markup-with-jsx">Writing Markup with JSX</a>.
+    The official docs, by React's own team — the same component/props/JSX model you just read,
+    with interactive examples.
+  </div>
+
+  <!-- ================= ASK ================= -->
+  <p class="ask">I'm your teacher — <b>ask me anything</b> that's fuzzy. "Open the real
+  <code>Button.tsx</code> and walk me through the parts we skipped." "Where does
+  <code>variant="accent"</code> actually change the colour?" "Let's find and tweak a real
+  prop in my project." Follow-ups are how this sticks.</p>
+
+  <div class="nav">
+    <a href="0002-reading-an-html-page.html">← Lesson 02 · Reading an HTML Page</a>
+    <a href="../reference/glossary.html">Glossary →</a>
+  </div>
+
+</article>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
