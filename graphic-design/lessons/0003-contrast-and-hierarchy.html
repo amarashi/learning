@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — Contrast &amp; Hierarchy</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+<main class="lesson">
+
+  <p class="eyebrow">Lesson 03 · The C.R.A.P. core — C (+ Hierarchy)</p>
+  <h1>Contrast &amp; Hierarchy — what the eye sees first</h1>
+  <p class="sub">Proximity and alignment made things <em>tidy</em>. Contrast decides
+  what's <em>loud</em>. Used on purpose, it builds <strong>hierarchy</strong>: a
+  deliberate first, second, third for the eye. This is the biggest single step from
+  "typed" to "designed."</p>
+
+  <p class="lede">One idea runs through this whole lesson: <strong>contrast is the tool;
+  hierarchy is the goal.</strong> You turn up the difference between elements
+  (<a href="0001-the-map-of-graphic-design.html">contrast</a>) so the viewer's eye
+  lands in the order <em>you</em> chose.</p>
+
+  <!-- ============ THE MAP (diagram first) ============ -->
+  <div class="map">
+    <div class="layer principles">
+      <p class="layer-label">The tool · Contrast <span class="layer-sub">make differences obvious</span></p>
+      <div class="row">
+        <div class="box"><b>Size</b><span class="what">big vs small</span></div>
+        <div class="box lead"><b>Value</b><span class="what">dark vs light — the strongest</span></div>
+        <div class="box"><b>Weight</b><span class="what">bold vs thin</span></div>
+        <div class="box"><b>Colour</b><span class="what">hue, last not first</span></div>
+        <div class="box"><b>Space</b><span class="what">crowded vs open</span></div>
+      </div>
+    </div>
+    <div class="arrow">builds</div>
+    <div class="layer outcome">
+      <p class="layer-label">The goal · Hierarchy <span class="layer-sub">a 1 – 2 – 3 for the eye</span></p>
+      <div class="row">
+        <div class="box"><b>1st</b><span class="what">the one thing they must see</span></div>
+        <div class="box"><b>2nd</b><span class="what">what it's about</span></div>
+        <div class="box"><b>3rd</b><span class="what">the supporting detail</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONTRAST ============ -->
+  <h2>1 · Contrast — if it's different, make it obvious</h2>
+  <p><strong>When two things aren't the same, make them <em>very</em> different — not
+  slightly.</strong> Timid contrast reads as a mistake; the eye can't tell if it's
+  meant to be the same or not. Bold contrast reads as a decision.<span class="cite">
+  <a href="https://saylordotorg.github.io/text_business-information-systems-design-an-app-for-that/s07-01-c-r-a-p-principles-of-graphic-.html">[CRAP · Saylor]</a></span></p>
+
+  <div class="specimens">
+    <div class="specimen before">
+      <p class="cap">Before — timid difference</p>
+      <div class="stage">
+        <div class="demo contrast timid">
+          <p class="ttl">Spring Sale</p>
+          <p class="bd">Two days only — everything reduced.</p>
+        </div>
+      </div>
+      <p class="note">Title only a touch bigger than the line below. The eye can't tell
+      which matters, so it reads them as equals and finds no entry point.</p>
+    </div>
+
+    <div class="specimen after">
+      <p class="cap">After — committed difference</p>
+      <div class="stage">
+        <div class="demo contrast bold">
+          <p class="ttl">Spring Sale</p>
+          <p class="bd">Two days only — everything reduced.</p>
+        </div>
+      </div>
+      <p class="note">Same words. The title is now much larger and heavier; the detail
+      recedes. Your eye lands on "Spring Sale" first, every time. That's contrast
+      <em>doing</em> something.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">The rule of thumb</span>
+    <p>"Don't be a wimp." If you're making something different — bigger, bolder,
+    darker — push it far enough that no one could mistake it for an accident.</p>
+  </div>
+
+  <!-- ============ THE SQUINT / VALUE TEST ============ -->
+  <h2>2 · Where contrast really lives: value, not colour</h2>
+  <p>Here's the trap for someone who thinks in colour first. Contrast feels like a
+  <em>hue</em> job — "make it blue, make it red." But the strongest contrast comes from
+  <strong>value</strong>: how light or dark something is, independent of its colour.<span class="cite">
+  <a href="../reference/glossary.html">[glossary · Value]</a></span> Two different hues
+  at the <em>same</em> value barely separate. A dark thing on a light thing always does.</p>
+
+  <p>The diagnostic is the <strong>squint test</strong>: blur your eyes (or desaturate
+  the image) until hue drops out. <em>What survives is your value contrast</em> — and
+  that's what actually carries the hierarchy. Try it:</p>
+
+  <div class="squint-zone" id="squint1">
+    <div class="squint-cards">
+      <div class="scard hue">
+        <span class="lbl">Hue contrast only</span>
+        <span class="big">Read me</span>
+      </div>
+      <div class="scard value">
+        <span class="lbl">Value contrast</span>
+        <span class="big">Read me</span>
+      </div>
+    </div>
+  </div>
+  <button class="squint-btn" data-squint="#squint1"
+          data-on="Squint (desaturate)" data-off="Open your eyes">Squint (desaturate)</button>
+  <p class="squint-cap">In colour both cards look fine. Squint, and the left one turns
+  to mud — its two hues sit at nearly the same value, so nothing survives. The right
+  one stays perfectly legible. <strong>Value is what survives the squint.</strong></p>
+
+  <div class="callout analogy">
+    <span class="tag">For the systems thinker</span>
+    <p>Think of a colour as a vector with three components — <em>hue</em>,
+    <em>saturation</em>, <em>value</em>. Contrast can act on any of them, but the eye
+    weights <strong>value</strong> most for "what's foreground vs background." Optimise
+    value first; treat hue as a second-order adjustment, not the lever.</p>
+  </div>
+
+  <!-- ============ HIERARCHY ============ -->
+  <h2>3 · Hierarchy — contrast with a plan</h2>
+  <p>Contrast applied at random just makes noise. <strong>Hierarchy</strong> is contrast
+  used deliberately to rank elements by importance, so the eye reads them
+  <strong>first, second, third</strong>.<span class="cite">
+  <a href="https://www.interaction-design.org/literature/topics/visual-hierarchy">[IxDF · Visual hierarchy]</a></span>
+  Before you style anything, decide the ranking. Then use size, value and weight to
+  enforce it.</p>
+
+  <div class="specimens">
+    <div class="specimen before">
+      <p class="cap">Before — everything equal</p>
+      <div class="stage">
+        <div class="demo rank flat">
+          <p>Kiln &amp; Co Pottery Class</p>
+          <p>Beginners welcome</p>
+          <p>Thursdays · 7pm · 14 Kiln Lane</p>
+          <p>Book at kilnand.co</p>
+        </div>
+      </div>
+      <p class="note">No level stands out, so the eye starts top-left and trudges down.
+      There's no "see this first." A flat hierarchy is really <em>no</em> hierarchy.</p>
+    </div>
+
+    <div class="specimen after">
+      <p class="cap">After — a clear 1-2-3</p>
+      <div class="stage">
+        <div class="demo rank ranked">
+          <p class="r1">Pottery Class</p>
+          <p class="r2">Beginners welcome</p>
+          <p class="r3">Thursdays · 7pm · 14 Kiln Lane</p>
+          <p class="r4">Book at kilnand.co</p>
+        </div>
+      </div>
+      <p class="note">Same content, ranked. <strong>1</strong> the name (big, dark),
+      <strong>2</strong> the hook (accent), <strong>3</strong> the details (small,
+      muted), then the action. The eye is led, not left to wander.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Notice the reuse</span>
+    <p>Hierarchy doesn't replace Lesson 02 — it sits on top. The "after" still uses
+    <a href="0002-proximity-and-alignment.html">proximity</a> (details grouped) and
+    <a href="0002-proximity-and-alignment.html">alignment</a> (one shared left edge).
+    Contrast adds the <em>ranking</em> those two couldn't.</p>
+  </div>
+
+  <!-- ============ INTERLEAVED QUIZ ============ -->
+  <h2>Check your eye</h2>
+  <p>Mixed with Lessons 01–02 on purpose — interleaving is what makes it stick. No notes.</p>
+
+  <div class="quiz">
+    <p class="q">A title is just slightly bigger than the body text. What's the fault?</p>
+    <button class="opt" data-correct data-why="Right — timid contrast. If it's meant to be different, make it clearly different, not a little.">Contrast too weak</button>
+    <button class="opt" data-why="Alignment is about shared edges, not the size difference between title and body.">Alignment is off</button>
+    <button class="opt" data-why="Proximity is grouping by distance. The issue here is that nothing dominates by size.">Proximity is off</button>
+  </div>
+
+  <div class="quiz">
+    <p class="q">Two colours look distinct, but vanish into mud when you desaturate. Why?</p>
+    <button class="opt" data-why="Saturation differs maybe, but the squint test removes hue — what fails here is the light/dark gap.">They differ in saturation</button>
+    <button class="opt" data-correct data-why="Yes — same value. Hue differed but value didn't, so once hue drops out nothing separates them.">They share the same value</button>
+    <button class="opt" data-why="Repetition is reusing styles across a piece — unrelated to two colours merging when greyed.">They break repetition</button>
+  </div>
+
+  <div class="quiz">
+    <p class="q">You want the eye to read name, then hook, then details, in that order. What is that?</p>
+    <button class="opt" data-why="Proximity groups related items by distance; it doesn't set a first-second-third reading order.">Proximity</button>
+    <button class="opt" data-correct data-why="Right — hierarchy: deliberately ranking elements so the eye reads them in a chosen order, built from contrast.">Hierarchy</button>
+    <button class="opt" data-why="Balance is the distribution of visual weight across the layout, not the ranking of importance.">Balance</button>
+  </div>
+
+  <div class="quiz">
+    <p class="q">To make a headline dominate, which lever should you reach for FIRST?</p>
+    <button class="opt" data-why="Hue can help, but two hues at equal value barely separate. Colour is the second-order adjustment, not the first lever.">A brighter hue</button>
+    <button class="opt" data-correct data-why="Yes — value (and size). Dark-on-light survives the squint and carries the hierarchy; hue is a tweak after.">More size and value</button>
+    <button class="opt" data-why="More saturation alone won't build dominance if the value is the same as its surroundings. Reach for value first.">More saturation</button>
+  </div>
+
+  <!-- ============ PROCREATE PRACTICE ============ -->
+  <div class="practice">
+    <span class="tag">Practice · Procreate · ~12 min</span>
+    <p>Build a hierarchy, then prove it with the squint test.</p>
+    <ol>
+      <li>New canvas. Type the same four lines as the poster above:
+      <em>name, hook, details, action</em>. First make them all one size and weight —
+      the flat "before."</li>
+      <li>Duplicate. Now <strong>rank</strong> them: make the name big and dark, the
+      hook a clear accent, the details small and muted. Use <em>size and value</em> to
+      do the work — resist reaching for colour first.</li>
+      <li><strong>Squint test it.</strong> In Procreate, drop a <em>Hue/Saturation</em>
+      adjustment to zero saturation (greyscale), or just physically squint at the
+      screen. Does your ranking still read 1-2-3 in pure grey? If it collapses, your
+      contrast was living in hue, not value — fix it and squint again.</li>
+    </ol>
+    <p style="font-family:var(--sans);font-size:0.9rem;margin:0.6rem 0 0;">Tell me what
+    survived the squint (and how the L02 contact-card drill went) — that picks Lesson 04.</p>
+  </div>
+
+  <div class="win">
+    <span class="tag">Your win this lesson</span>
+    <p>You can now build <strong>hierarchy on purpose</strong>: decide the 1-2-3, then
+    use <strong>contrast</strong> — chiefly <strong>size and value</strong>, not hue —
+    to enforce it. And you have a hard diagnostic that ignores taste: the
+    <strong>squint test</strong>. If it survives grey, the contrast is real.</p>
+  </div>
+
+  <div class="source">
+    <span class="tag">Read / watch next — the primary source</span>
+    <p><strong>Robin Williams — <em>The Non-Designer's Design Book</em>, the Contrast
+    chapter</strong> (and her "don't be a wimp" rule). Pair it with
+    <a href="https://www.interaction-design.org/literature/topics/visual-hierarchy">IxDF —
+    Visual Hierarchy</a> for how contrast directs attention. Full list in your
+    <a href="../RESOURCES.md">resources</a>.</p>
+  </div>
+
+  <p class="ask">I'm your teacher here, not just the page. Want me to run the squint test
+  with you on a real piece — a slide, a chart, the FHA site — and name where the
+  hierarchy holds or breaks? Just <b>ask</b>. And bring your Procreate before/afters.</p>
+
+  <div class="nav">
+    <a href="0002-proximity-and-alignment.html">← Lesson 02 · Proximity &amp; Alignment</a>
+    <a href="../reference/glossary.html">Glossary →</a>
+  </div>
+
+</main>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/squint.js"></script>
+</body>
+</html>

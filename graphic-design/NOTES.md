@@ -32,8 +32,9 @@
 - The `/teach` SKILL.md now has a **Visuals & Examples** ladder. Follow it here:
   1. **Native HTML/CSS/SVG first** — best for design because it's *precise* and
      interactive. Reusable specimen components live in `assets/lesson.css`
-     (`.specimens`, `.specimen.before/.after`, `.flyer` demo). Lesson 01 now has a
-     live before/after flyer built this way.
+     (`.specimens`, `.specimen.before/.after`, `.flyer`/`.demo.rank`/`.demo.contrast`).
+     Lesson 01 has a live before/after flyer; L03 adds an **interactive squint test**
+     (`assets/squint.js` + `.squint-zone`/`.scard` — desaturate to prove value > hue).
   2. **Real web examples** (cited) when authenticity matters — famous posters, real UI.
   3. **Generated images** only for photographic/illustrative needs, never for type or
      precise layout (models render those wrong).
@@ -50,6 +51,10 @@
   2. **C.R.A.P.** (Contrast, Repetition, Alignment, Proximity — Robin Williams) as the
      first actionable toolkit, then **Gestalt** (grouping/perception), then per-element
      deep-dives (Type, Colour, Space, Hierarchy).
-- Candidate next lessons: "Proximity & Alignment — instant tidiness", "Contrast & the
-  one-thing-first rule (hierarchy)", "Gestalt: why your eye groups things",
-  "Type 101", "Colour: value before hue".
+- Delivered so far: L01 Map (elements vs principles + CRAP), L02 Proximity & Alignment,
+  **L03 Contrast & Hierarchy** (with the interactive squint / value-vs-hue test).
+- Candidate next (L04): "Gestalt: why your eye groups things" (explains *why* the
+  arranging principles work), or a single-element deep-dive — "Type 101" or
+  "Colour: value before hue" (the squint test sets this one up). Let returned drills decide.
+- **Standing debt:** 3 lessons delivered, none yet demonstrated. Do a retention check
+  (report a drill or critique a real piece) BEFORE new material next session.

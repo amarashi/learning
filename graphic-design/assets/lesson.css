@@ -400,8 +400,54 @@ code {
   font-weight: 600; margin: 0.5rem 0 0;
 }
 
+/* Demo: contrast — timid vs bold difference (same words) */
+.demo.contrast { font-family: var(--sans); }
+.demo.contrast.timid .ttl  { font-size: 1.15rem; font-weight: 600; color: #4a4650; margin: 0 0 0.4rem; }
+.demo.contrast.timid .bd   { font-size: 1.0rem;  font-weight: 500; color: #4a4650; margin: 0; }
+.demo.contrast.bold  .ttl  { font-family: var(--serif); font-size: 2.3rem; font-weight: 700;
+  color: var(--ink); line-height: 1.0; margin: 0 0 0.45rem; letter-spacing: -0.01em; }
+.demo.contrast.bold  .bd   { font-size: 0.85rem; font-weight: 500; color: var(--muted); margin: 0; }
+
+/* Demo: hierarchy — flat (all equal) vs ranked (1-2-3) */
+.demo.rank { font-family: var(--sans); }
+.demo.rank.flat p { font-size: 1.0rem; font-weight: 500; color: #4a4650; margin: 0.5rem 0; }
+.demo.rank.ranked .r1 { font-family: var(--serif); font-size: 2.0rem; font-weight: 700;
+  color: var(--ink); line-height: 1.0; margin: 0 0 0.1rem; letter-spacing: -0.01em; }
+.demo.rank.ranked .r2 { font-size: 0.9rem; font-weight: 700; color: var(--principle);
+  text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 1.1rem; }
+.demo.rank.ranked .r3 { font-size: 0.86rem; font-weight: 500; color: var(--muted); margin: 0.18rem 0; }
+.demo.rank.ranked .r4 { font-size: 0.84rem; font-weight: 700; color: var(--ink);
+  margin: 1.0rem 0 0; letter-spacing: 0.02em; }
+
+/* ---- Squint test (value vs hue) — wired by assets/squint.js ----------- */
+/* Two cards: one relies on HUE difference (vanishes when desaturated),
+   one relies on VALUE difference (survives). The button simulates squinting. */
+.squint-zone { transition: filter 0.3s ease; }
+.squint-zone.squinting { filter: grayscale(1) blur(0.6px) contrast(0.96); }
+.squint-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.scard { border-radius: 10px; padding: 1.4rem 1.1rem; text-align: center;
+  font-family: var(--sans); }
+.scard .lbl { display:block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 0.85; margin-bottom: 0.5rem; }
+.scard .big { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+/* Hue contrast, near-equal value → muddy when grey */
+.scard.hue   { background: #b58b5a; color: #5a86b5; }
+.scard.hue .lbl { color: #463a2c; }
+/* Value contrast → crisp when grey */
+.scard.value { background: #f2eee6; color: #232026; border: 1px solid var(--line); }
+.scard.value .lbl { color: var(--muted); }
+.squint-btn {
+  font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
+  background: var(--ink); color: #fff; border: none; border-radius: 8px;
+  padding: 0.55rem 1.1rem; margin: 0.9rem 0 0; cursor: pointer;
+}
+.squint-btn:hover { background: #000; }
+.squint-cap { font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+  margin: 0.55rem 0 0; max-width: none; }
+
 @media (max-width: 560px) {
   .specimens { grid-template-columns: 1fr; }
+  .squint-cards { grid-template-columns: 1fr; }
 }
 
 /* ---- Print ----------------------------------------------------------- */
