@@ -378,6 +378,28 @@ code {
   margin-top: 1.3rem; color: var(--ink); letter-spacing: 0.02em;
 }
 
+/* Demo: grouping (proximity) — flat list vs grouped units */
+.demo { font-family: var(--sans); color: #46424c; }
+.demo .ln { margin: 0; font-size: 0.9rem; }
+.demo.flat-list .ln { margin: 0.55rem 0; }
+.demo.grouped .unit { margin: 0 0 1.15rem; }
+.demo.grouped .unit:last-child { margin-bottom: 0; }
+.demo.grouped .ttl { font-weight: 700; color: var(--ink); }
+
+/* Demo: alignment — the shared edge made visible */
+.demo.ragged .ln { margin: 0.5rem 0; }
+.demo.aligned {
+  border-left: 2px solid var(--principle);
+  padding-left: 0.9rem;
+  text-align: left;
+}
+.demo.aligned .ln { margin: 0.42rem 0; }
+.demo.aligned .ttl { font-weight: 700; color: var(--ink); }
+.edge-key {
+  font-family: var(--sans); font-size: 0.72rem; color: var(--principle);
+  font-weight: 600; margin: 0.5rem 0 0;
+}
+
 @media (max-width: 560px) {
   .specimens { grid-template-columns: 1fr; }
 }
